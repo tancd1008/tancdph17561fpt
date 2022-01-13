@@ -1,4 +1,4 @@
-const TrangChu = {
+const Home = {
     render() {
         return /* html */`
         <main class="max-w-5xl mx-auto">
@@ -95,4 +95,4 @@ const TrangChu = {
         `;
     },
 };
-export default TrangChu;
+export default Home;

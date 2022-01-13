@@ -1,7 +1,7 @@
 import Navigo from "navigo";
 import Footer from "./components/footer";
 import Header from "./components/header";
-import TrangChu from "./pages/trangchu";
+import Home from "./pages/home";
 
 const router = new Navigo("/", { linksSelector: "a" });
 const print = (content) => {
@@ -11,7 +11,7 @@ const print = (content) => {
 };
 router.on({
     "/": () => {
-        print(TrangChu.render());
+        print(Home.render());
     },
 
 });
