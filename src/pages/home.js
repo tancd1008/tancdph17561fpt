@@ -1,96 +1,37 @@
+import data from "../data";
+
 const Home = {
     render() {
         return /* html */`
         <main class="max-w-5xl mx-auto">
         <h2 class="py-2 font-bold text-blue">TIN TỨC HỌC TẬP</h2>
-        <div class="grid grid-cols-3 gap-x-6">
-          <div class="border border-black py-[10px] px-[10px] mx-auto">
-            <a href=""
-              ><img class="  " src="https://picsum.photos/300/200" alt=""
-            /></a>
-            <a href="">
-              <h4 class="text-red-600 py-1 font-bold hover:text-orange-600">
-                Vinh danh 295 sinh viên FPT Polytechnic học kì SP 2021
-              </h4>
-            </a>
-            <p class="text-m">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis
-              natus, commodi quia earum quaerat ratione aut quod sit nobis rem
-              quibusdam.
-            </p>
+        
+          <div class="grid grid-cols-3 gap-8 border border-black py-[10px] px-[10px] mx-auto">
+            ${data.map((post) => `
+            <div class="border p-4">
+                            <a href="">
+                                <img src="${post.img}" alt="" />
+                            </a>
+                            <h3 class="my-3"><a href="/new/${post.id}" class="font-semibold text-lg text-orange-500">${post.title}</a></h3>
+                            <p>${post.content}</p>
+                        </div>
+            `).join("")}
           </div>
-          <div class="border border-black py-[10px] px-[10px] mx-auto">
-            <a href=""><img src="https://picsum.photos/300/200" alt="" /></a>
-            <a href="">
-              <h4 class="text-red-600 py-1 font-bold hover:text-orange-600">
-                Sinh viên khối ngành kinh tế FPT Polytechnic học kì SP 2021
-              </h4>
-            </a>
-            <p class="text-m">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis
-              natus, commodi quia earum quaerat ratione aut quod sit nobis rem
-              quibusdam
-            </p>
-          </div>
-          <div class="border border-black py-[10px] px-[10px] mx-auto">
-            <a href=""><img src="https://picsum.photos/300/200" alt="" /></a>
-            <a href="">
-              <h4 class="text-red-600 py-1 font-bold hover:text-orange-600">
-                Sinh viên Fpoly trải nghiệm thực tế tại doanh nghiệp
-              </h4>
-            </a>
-            <p class="text-m">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis
-              natus, commodi quia earum quaerat ratione aut quod sit nobis rem
-              quibusdam.
-            </p>
-          </div>
-        </div>
+        
 
         <h2 class="py-2 font-bold text-blue">HOẠT ĐỘNG SINH VIÊN</h2>
-        <div class="grid grid-cols-3 gap-x-6">
-          <div class="border border-black py-[10px] px-[10px] mx-auto">
-            <a href=""
-              ><img class="  " src="https://picsum.photos/300/200" alt=""
-            /></a>
-            <a href="">
-              <h4 class="text-red-600 py-1 font-bold hover:text-orange-600">
-                Vinh danh 295 sinh viên FPT Polytechnic học kì SP 2021
-              </h4>
-            </a>
-            <p class="text-m">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis
-              natus, commodi quia earum quaerat ratione aut quod sit nobis rem
-              quibusdam.
-            </p>
-          </div>
-          <div class="border border-black py-[10px] px-[10px] mx-auto">
-            <a href=""><img src="https://picsum.photos/300/200" alt="" /></a>
-            <a href="">
-              <h4 class="text-red-600 py-1 font-bold hover:text-orange-600">
-                Sinh viên khối ngành kinh tế FPT Polytechnic học kì SP 2021
-              </h4>
-            </a>
-            <p class="text-m">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis
-              natus, commodi quia earum quaerat ratione aut quod sit nobis rem
-              quibusdam.
-            </p>
-          </div>
-          <div class="border border-black py-[10px] px-[10px] mx-auto">
-            <a href=""><img src="https://picsum.photos/300/200" alt="" /></a>
-            <a href="">
-              <h4 class="text-red-600 py-1 font-bold hover:text-orange-600">
-                Sinh viên Fpoly trải nghiệm thực tế tại doanh nghiệp
-              </h4>
-            </a>
-            <p class="text-m">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis
-              natus, commodi quia earum quaerat ratione aut quod sit nobis rem
-              quibusdam.
-            </p>
-          </div>
-        </div>
+        <div class="grid grid-cols-3 gap-8 border border-black py-[10px] px-[10px] mx-auto">
+        ${data.map((post) => `
+        <div class="border p-4">
+                        <a href="">
+                            <img src="${post.img}" alt="" />
+                        </a>
+                        <h3 class="my-3"><a href="/new/${post.id}" class="font-semibold text-lg text-orange-500">${post.title}</a></h3>
+                        <p>${post.content}</p>
+                    </div>
+        `).join("")}
+      </div>
+        
       </main>
         `;
     },

@@ -2,6 +2,7 @@ import Navigo from "navigo";
 import Footer from "./components/footer";
 import Header from "./components/header";
 import Home from "./pages/home";
+import TuyenSinh from "./pages/tuyensinh";
 
 const router = new Navigo("/", { linksSelector: "a" });
 const print = (content) => {
@@ -12,6 +13,9 @@ const print = (content) => {
 router.on({
     "/": () => {
         print(Home.render());
+    },
+    "/tuyensinh": () => {
+        print(TuyenSinh.render());
     },
 
 });

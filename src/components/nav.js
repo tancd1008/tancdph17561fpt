@@ -13,7 +13,7 @@ const Nav = {
           </li>
           <li>
             <a
-              href=""
+              href="/tuyensinh"
               class="block py-2 px-3 text-white hover:underline underline-offset-4"
               >Tuyển sinh</a
             >
