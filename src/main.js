@@ -2,6 +2,7 @@ import Navigo from "navigo";
 import Footer from "./components/footer";
 import Header from "./components/header";
 import Home from "./pages/home";
+import New from "./pages/news";
 import TuyenSinh from "./pages/tuyensinh";
 
 const router = new Navigo("/", { linksSelector: "a" });
@@ -16,6 +17,10 @@ router.on({
     },
     "/tuyensinh": () => {
         print(TuyenSinh.render());
+    },
+    "/new/:id": ({ data }) => {
+        const { id } = data;
+        print(New.render(id));
     },
 
 });
