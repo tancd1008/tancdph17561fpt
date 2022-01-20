@@ -76,12 +76,12 @@ router.resolve();
 
 // es6 - promise: là một đối tượng đặc biệt, xử lý bất đồng bộ.
 const render = () => new Promise((resolve, reject) => {
-    const status = true;
+    const status = false;
     setTimeout(() => {
         if (status) {
             resolve([1, 2, 3, 4]);
         } else {
-            reject();
+            reject(new Error("Lắc đầu"));
         }
     }, 3000);
 });
@@ -91,14 +91,14 @@ const render = () => new Promise((resolve, reject) => {
 // render().catch((error) => console.log(error));
 
 // async/await: cú pháp mới es8, xử lý bất đồng bộ
-// const printA = async () => {
-//     try {
-//         const result = await render();
-//         console.log("result", result);
-//         result.push(5);
-//         console.log("result", result);
-//     } catch (error) {
-//         console.log(error);
-//     }
-// };
-// printA();
+const printA = async () => {
+    try {
+        const result = await render();
+        console.log("result", result);
+        result.push(5);
+        console.log("result", result);
+    } catch (error) {
+        console.log(error);
+    }
+};
+printA();
