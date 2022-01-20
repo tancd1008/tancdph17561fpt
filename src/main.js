@@ -51,3 +51,54 @@ router.on({
 });
 
 router.resolve();
+/* callback là 1 hàm được truyền vào 1 hàm khác như 1 đối số
+   sync,async : Đồng bộ và bất đồng bộ trong javascript
+*/
+// function loadScript(src, callback) {
+//     const script = document.createElement("script");
+//     script.src = src;
+//     script.onload = () => {
+//         callback(null, script);
+//     };
+//     script.onerror = () => {
+//         callback("Loi roi");
+//     };
+//     document.head.append(script);
+// }
+// callback in callback
+// loadScript("http://aloalo.com/index.js", (error, script) => {
+//     loadScript("http://aloalo.com/index.js", (error, script) => {
+//         loadScript("http://aloalo.com/index.js", (error, script) => {
+//             console.log("finished");
+//         });
+//     });
+// });
+
+// es6 - promise: là một đối tượng đặc biệt, xử lý bất đồng bộ.
+const render = () => new Promise((resolve, reject) => {
+    const status = true;
+    setTimeout(() => {
+        if (status) {
+            resolve([1, 2, 3, 4]);
+        } else {
+            reject();
+        }
+    }, 3000);
+});
+
+// render().then((result) => console.log(result));
+// render().then(() => console.log("AloAlo"));
+// render().catch((error) => console.log(error));
+
+// async/await: cú pháp mới es8, xử lý bất đồng bộ
+// const printA = async () => {
+//     try {
+//         const result = await render();
+//         console.log("result", result);
+//         result.push(5);
+//         console.log("result", result);
+//     } catch (error) {
+//         console.log(error);
+//     }
+// };
+// printA();
