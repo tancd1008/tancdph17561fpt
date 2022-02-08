@@ -1,7 +1,7 @@
 import data from "../data";
 
 const New = {
-    render(id) {
+    async render(id) {
         const found = data.find((element) => element.id === id);
 
         return `<div class="max-w-5xl mx-auto">

@@ -1,9 +1,12 @@
-import data from "../data";
+import axios from "axios";
 import Header from "../components/header";
 import Footer from "../components/footer";
 
 const Home = {
-    render() {
+    async render() {
+        // const reponse = await fetch("https://5e79b4b817314d00161333da.mockapi.io/posts");
+        // const data = await reponse.json();
+        const { data } = await axios.get("https://5e79b4b817314d00161333da.mockapi.io/posts");
         return /* html */`
             ${Header.render()}
             <div class="max-w-5xl mx-auto"> 
