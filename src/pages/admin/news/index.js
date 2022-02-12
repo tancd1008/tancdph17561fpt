@@ -1,9 +1,9 @@
-import axios from "axios";
+import { getAll, remove } from "../../../api/posts";
 import { reRender } from "../../utils/rerender";
 
 const AdminPost = {
     async render() {
-        const { data } = await axios.get("https://5e79b4b817314d00161333da.mockapi.io/posts");
+        const { data } = await getAll();
 
         return /* html */`
         <div class="max-w-5xl mx-auto"> 
@@ -33,11 +33,11 @@ const AdminPost = {
     afterRender() {
         const btns = document.querySelectorAll(".btn");
         btns.forEach((btn) => {
-            const { id } = btn.dataset;
+            const { id } = btn.dataset.id;
             btn.addEventListener("click", async () => {
                 const confirm = window.confirm("Bạn có chắc chắn không??");
                 if (confirm) {
-                    axios.delete(`https://5e79b4b817314d00161333da.mockapi.io/posts/${id}`).then(() => {
+                    remove(id).then(() => {
                         reRender(AdminPost, "#content");
                     });
                 }

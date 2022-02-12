@@ -1,7 +1,5 @@
 import Navigo from "navigo";
 import Dashboard from "./pages/admin/dashboard";
-import EditPage from "./pages/admin/news/edit";
-import AddNewsPage from "./pages/admin/news/add";
 // import Footer from "./components/footer";
 // import Header from "./components/header";
 import Home from "./pages/home";
@@ -10,11 +8,14 @@ import SignIn from "./pages/signin";
 import SignUp from "./pages/signup";
 import TinTuc from "./pages/tintuc";
 import AdminPost from "./pages/admin/news";
+import AddPost from "./pages/admin/news/add";
+import AdminEditposts from "./pages/admin/news/edit";
 
 const router = new Navigo("/", { linksSelector: "a" });
 const print = async (content, id) => {
     // document.getElementById("header").innerHTML = Header.render();
     document.getElementById("content").innerHTML = await content.render(id);
+    if (content.afterRender) await content.afterRender();
     // document.getElementById("footer").innerHTML = Footer.render();
 };
 router.on({
@@ -37,7 +38,7 @@ router.on({
         print(AdminPost);
     },
     "/admin/news/add": () => {
-        print(AddNewsPage);
+        print(AddPost);
     },
     "/new/:id": ({ data }) => {
         const { id } = data;
@@ -45,7 +46,7 @@ router.on({
     },
     "/admin/news/:id/edit": ({ data }) => {
         const { id } = data;
-        print(EditPage, id);
+        print(AdminEditposts, id);
     },
 
 });

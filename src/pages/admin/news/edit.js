@@ -1,43 +1,57 @@
+import axios from "axios";
 import NavAdmin from "../../../components/navadmin";
-import data from "../../../data";
+import { edit, get } from "../../../api/posts";
 
-const EditPage = {
-    render(id) {
-        const found = data.find((element) => element.id === id);
+const AdminEditposts = {
+    async render(id) {
+        const { data } = await get(id);
+        console.log(data);
+        return `
+          <div class="max-w-5xl mx-auto">
+              <div class="banner">
+              ${NavAdmin.render()}
+              </div>
+              <div class="news">
+                  <form id="formEditPost">
+                      <input type="text" class="border border-black" id="title-post" placeholder="Title Post" value="${data.title}"/><br />
+                      <img src="${data.img}" />
+                      <input type="file" class="border border-black" id="img-post" /> <br />
+                      <textarea name="" class="border border-black" id="desc-post" cols="30" rows="10">${data.desc}</textarea> <br />
+                      <button class="bg-blue-500 inline-block px-3 py-4">Add post</button>
+                  </form>
+              </div>
+          </div>
+      `;
+    },
+    afterRender(id) {
+        const formEditPost = document.querySelector("#formEditPost");
+        const CLOUDINARY_PRESET = "sgalizop";
+        const CLOUDINARY_API_URL = "https://api.cloudinary.com/v1_1/tancd/image/upload";
 
-        return /* html */ `
-        ${NavAdmin.render()}
-        <header class="bg-white shadow">
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                    <div class="lg:flex lg:items-center lg:justify-between">
-                        <div class="flex-1 min-w-0">
-                        <h2 class="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:truncate">
-                            Chỉnh sửa tin tức
-                        </h2>
-                        </div>
-                    </div>
-                </div>
-            </header>
-            <main>
-              <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
-              <div class="px-4 py-6 sm:px-0">
-                  <div class="border-4 border-dashed border-gray-200 rounded-lg h-96">
-                    <div class="max-w-5xl mx-auto">
+        formEditPost.addEventListener("submit", async (e) => {
+            e.preventDefault();
 
-                      <h1>${found.title}(${found.id})</h1>
-                      <img src="${found.img}" />
-                      <p>${found.content}</p>
-                    </div>
-                  </div>
-              </div>
-              <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
-                <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                  Sửa
-                </button>
-              </div>
-              </div>
-            </main>
-       `;
+            // Lấy giá trị của input file
+            const file = document.querySelector("#img-post").files[0];
+            // Gắn vào đối tượng formData
+            const formData = new FormData();
+            formData.append("file", file);
+            formData.append("upload_preset", CLOUDINARY_PRESET);
+
+            // call api cloudinary, để upload ảnh lên
+            const { data } = await axios.post(CLOUDINARY_API_URL, formData, {
+                headers: {
+                    "Content-Type": "application/form-data",
+                },
+            });
+            // call API thêm bài viết
+            edit({
+                id,
+                title: document.querySelector("#title-post").value,
+                img: data.url,
+                desc: document.querySelector("#desc-post").value,
+            });
+        });
     },
 };
-export default EditPage;
+export default AdminEditposts;
