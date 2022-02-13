@@ -24,9 +24,14 @@ const Nav = {
               <form action="" class="block py-3 px-4 text-white ">
                   <input type="text" />
                   <button class="border-5 bg-cyan-900 px-[5px] text-white hover:bg-cyan-600">TÌM KIẾM</button>
-                </form>
+              </form>
+              
             </div>
           </nav>`;
     },
+    // afterRender() {
+    //     const email = document.querySelector("#email");
+    //     email.innerHTML = JSON.parse(localStorage.getItem("user")).email;
+    // },
 };
 export default Nav;

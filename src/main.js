@@ -4,12 +4,12 @@ import Dashboard from "./pages/admin/dashboard";
 // import Header from "./components/header";
 import Home from "./pages/home";
 import New from "./pages/news";
-import SignIn from "./pages/signin";
-import SignUp from "./pages/signup";
 import TinTuc from "./pages/tintuc";
 import AdminPost from "./pages/admin/news";
 import AddPost from "./pages/admin/news/add";
 import AdminEditposts from "./pages/admin/news/edit";
+import Signin from "./pages/signin";
+import Signup from "./pages/signup";
 
 const router = new Navigo("/", { linksSelector: "a" });
 const print = async (content, id) => {
@@ -26,10 +26,10 @@ router.on({
         print(TinTuc);
     },
     "/signin": () => {
-        print(SignIn);
+        print(Signin);
     },
     "/signup": () => {
-        print(SignUp);
+        print(Signup);
     },
     "/admin/dashboard": () => {
         print(Dashboard);

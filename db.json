@@ -152,12 +152,12 @@
   "users": [
     {
       "email": "caotan@gmail.com",
-      "password": "$2a$10$ePGq1MQDQ1AEWV9QmR1KM.U7ew00v1WbAkbKehWmOdVNt48bQ2uKu",
+      "password": "$2a$10$.mmznjrrzurRJgWcxQjax.rJBbwQE/zG0GGLuNGg6mGJHNDUq2Ffa",
       "id": 1
     },
     {
       "email": "caotan1@gmail.com",
-      "password": "$2a$10$L9oKyjqEiTx/HuW/v3ovMuG.s51ZMYvlwtdln/a77hS6jFSfr6KgW",
+      "password": "$2a$10$fjPynrySY5hYVc/gBYtll.G02QpP/RmP28PAzyyVGyrcXtPkpffvu",
       "id": 2
     }
   ]
