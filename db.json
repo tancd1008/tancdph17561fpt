@@ -6,7 +6,7 @@
       "img": "http://placeimg.com/640/480/fashion",
       "desc": "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals",
       "id": "1",
-      "categoryPostId": 1
+      "categoryPostId": "1"
     },
     {
       "createdAt": "2022-01-10T20:33:27.477Z",
@@ -133,15 +133,15 @@
       "id": "17"
     },
     {
-      "title": "bai viet moi 1",
-      "img": "http://res.cloudinary.com/ecommercer2021/image/upload/v1644310015/tmidn2vyavd7uasurvsz.png",
-      "desc": "Noi dung bai viet moi 1",
-      "id": "Fhb4ltM"
+      "id": "Fhb4ltM",
+      "title": "bai viet moi 11",
+      "img": "http://res.cloudinary.com/tancd/image/upload/v1644846298/xusw0lndzp7egafj2kzm.jpg",
+      "desc": "Noi dung bai viet moi 11"
     }
   ],
   "categoryPosts": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Danh muc bai viet 1"
     },
     {
@@ -160,5 +160,33 @@
       "password": "$2a$10$fjPynrySY5hYVc/gBYtll.G02QpP/RmP28PAzyyVGyrcXtPkpffvu",
       "id": 2
     }
+  ],
+  "products": [
+    {
+      "createdAt": "2022-01-10T07:26:52.549Z",
+      "name": "Product 1",
+      "img": "http://placeimg.com/640/480/fashion",
+      "price": "100",
+      "desc": "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals",
+      "id": "1"
+    },
+    {
+      "createdAt": "2022-01-10T07:26:52.549Z",
+      "name": "Product 2",
+      "img": "http://placeimg.com/640/480/fashion",
+      "price": "200",
+      "desc": "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals",
+      "id": "2"
+    },{
+      "createdAt": "2022-01-10T07:26:52.549Z",
+      "name": "Product 3",
+      "img": "http://placeimg.com/640/480/fashion",
+      "price": "300",
+      "desc": "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals",
+      "id": "3"
+    }
+  
+  
+
   ]
 }

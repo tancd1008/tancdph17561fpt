@@ -4,26 +4,33 @@ import Dashboard from "./pages/admin/dashboard";
 // import Header from "./components/header";
 import Home from "./pages/home";
 import New from "./pages/news";
-import TinTuc from "./pages/tintuc";
-import AdminPost from "./pages/admin/news";
-import AddPost from "./pages/admin/news/add";
-import AdminEditposts from "./pages/admin/news/edit";
+import AdminPost from "./pages/admin/posts";
+import AddPost from "./pages/admin/posts/add";
+import AdminEditposts from "./pages/admin/posts/edit";
 import Signin from "./pages/signin";
 import Signup from "./pages/signup";
+import ProductDetailPage from "./pages/products/detail";
+import ProductsPage from "./pages/products";
 
 const router = new Navigo("/", { linksSelector: "a" });
+// const print = async (content, id) => {
+//     // document.getElementById("header").innerHTML = Header.render();
+//     document.getElementById("content").innerHTML = await content.render(id);
+//     if (content.afterRender) await content.afterRender();
+//     // document.getElementById("footer").innerHTML = Footer.render();
+// };
 const print = async (content, id) => {
-    // document.getElementById("header").innerHTML = Header.render();
-    document.getElementById("content").innerHTML = await content.render(id);
-    if (content.afterRender) await content.afterRender();
-    // document.getElementById("footer").innerHTML = Footer.render();
+    document.getElementById("app").innerHTML = await content.render(id);
+    if (content.afterRender) await content.afterRender(id);
 };
 router.on({
     "/": () => {
         print(Home);
     },
-    "/tintuc": () => {
-        print(TinTuc);
+    "/products": () => print(ProductsPage),
+    "/products/:id": ({ data }) => {
+        const { id } = data;
+        print(ProductDetailPage, id);
     },
     "/signin": () => {
         print(Signin);
@@ -44,10 +51,7 @@ router.on({
         const { id } = data;
         print(New, id);
     },
-    "/admin/news/:id/edit": ({ data }) => {
-        const { id } = data;
-        print(AdminEditposts, id);
-    },
+    "/admin/posts/:id/edit": ({ data }) => print(AdminEditposts, data.id),
 
 });
 

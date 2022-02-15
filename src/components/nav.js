@@ -8,7 +8,7 @@ const Nav = {
                   <a href="/" class="block py-2 px-3 text-white hover:underline underline-offset-4">Trang chủ</a>
                 </li>
                 <li>
-                  <a href="/tintuc" class="block py-2 px-3 text-white hover:underline underline-offset-4">Tin tức</a>
+                  <a href="/products" class="block py-2 px-3 text-white hover:underline underline-offset-4">Sản phẩm</a>
                 </li>
                 <li>
                   <a href="/signin" class="block py-2 px-3 text-white hover:underline underline-offset-4">Sign In</a>
