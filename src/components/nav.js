@@ -17,6 +17,9 @@ const Nav = {
                   <a href="/signup" class="block py-2 px-3 text-white hover:underline underline-offset-4">Sign Up</a>
                 </li>
                 <li>
+                <a href="/cart" class="block py-2 px-3 text-white hover:underline underline-offset-4">Giỏ hàng</a>
+              </li>
+                <li>
                   <a href="/admin/dashboard" class="block py-2 px-3 text-white hover:underline underline-offset-4">Admin</a>
                 </li>
                 

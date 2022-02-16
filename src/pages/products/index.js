@@ -1,4 +1,5 @@
 import { getAll } from "../../api/products";
+import Footer from "../../components/footer";
 import Header from "../../components/header";
 
 const ProductsPage = {
@@ -27,6 +28,9 @@ const ProductsPage = {
                     `).join("")}
                 </div>
             </div>
+            <div id="footer">
+            ${Footer.render()}
+        </div>
         </div>
         `;
     },
