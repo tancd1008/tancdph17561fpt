@@ -19,7 +19,7 @@ export const increaseQuantity = (id, next) => {
     localStorage.setItem("cart", JSON.stringify(cart));
     next();
 };
-export const decreaseQuantity = (id) => {
+export const decreaseQuantity = (id, next) => {
     const currentProduct = cart.find((item) => item.id === id);
     currentProduct.quantity--;
     if (currentProduct.quantity < 1) {
@@ -29,6 +29,7 @@ export const decreaseQuantity = (id) => {
         }
     }
     localStorage.setItem("cart", JSON.stringify(cart));
+    next();
 };
 export const removeItemInCart = (id, next) => {
     const confirm = window.confirm("Ban co muon xoa hay khong?");

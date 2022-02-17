@@ -14,20 +14,60 @@ const ProductsPage = {
                 <img src="https://picsum.photos/1024/400" />
             </div>
             <div class="news">
-                <h2 class="text-2xl font-semibold my-4">Sản phẩm</h2>
-                <div class="grid grid-cols-3 gap-8">
-                    ${data.map((post) => `
-                        <div class="border p-4">
-                            <a href="/products/${post.id}">
-                                <img src="${post.img}" alt="" />
+            <div class="bg-white">
+            <div class=" mx-auto py-10 px-14 sm:py-5 sm:px-4  lg:px-[45px]">
+              <h2 class="text-2xl font-extrabold tracking-tight text-gray-900">Sản phẩm mới</h2>
+                <div class="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+                    ${data.map((product) =>/* html */ `
+                    <div class="group relative">
+                        <div class="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
+                            <a href="/products/${product.id}">
+                                <img src="${product.img}" alt="Front of men&#039;s Basic Tee in black." class="w-full h-full object-center object-cover lg:w-full lg:h-full">
                             </a>
-                            <h3 class="my-3"><a  href="/products/${post.id}"class="font-semibold text-lg text-orange-500">${post.name}</a></h3>
-                            <p>${post.desc}</p>
-                            <p>${post.price.toLocaleString("it-IT", { style: "currency", currency: "VND" })}</p>
                         </div>
+                      <div class="mt-4 flex justify-between">
+                        <div>
+                          <h3 class="text-sm text-gray-700">
+                            <a href="/products/${product.id}">
+                              ${product.name}
+                            </a>
+                          </h3>
+                        </div>
+                        <p class="text-sm font-medium text-gray-900">${product.price}</p>
+                      </div>
+                    </div>
                     `).join("")}
                 </div>
             </div>
+          </div>
+          <div class="bg-white">
+            <div class=" mx-auto py-2 px-2 sm:py-3 sm:px-2  lg:px-[45px]">
+              <h2 class="text-2xl font-extrabold tracking-tight text-gray-900">Sản phẩm bán chạy</h2>
+                <div class="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+                    ${data.map((product) =>/* html */ `
+                    <div class="group relative">
+                        <div class="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
+                            <a href="/products/${product.id}">
+                                <img src="${product.img}" alt="Front of men&#039;s Basic Tee in black." class="w-full h-full object-center object-cover lg:w-full lg:h-full">
+                            </a>
+                        </div>
+                      <div class="mt-4 flex justify-between">
+                        <div>
+                          <h3 class="text-sm text-gray-700">
+                            <a href="/products/${product.id}">
+                              ${product.name}
+                            </a>
+                          </h3>
+                        </div>
+                        <p class="text-sm font-medium text-gray-900">${product.price}</p>
+                      </div>
+                    </div>
+                    `).join("")}
+                </div>
+            </div>
+          </div>
+            </div>
+        </div>
             <div id="footer">
             ${Footer.render()}
         </div>

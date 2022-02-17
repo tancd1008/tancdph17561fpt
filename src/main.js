@@ -1,5 +1,7 @@
 import Navigo from "navigo";
 import Dashboard from "./pages/admin/dashboard";
+// eslint-disable-next-line import/no-relative-packages
+
 // import Footer from "./components/footer";
 // import Header from "./components/header";
 import Home from "./pages/home";

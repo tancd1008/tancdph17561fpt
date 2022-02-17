@@ -1,4 +1,6 @@
+import toastr from "toastr";
 import { get } from "../../api/products";
+import "toastr/build/toastr.min.css";
 import Footer from "../../components/footer";
 import Header from "../../components/header";
 import { addToCart } from "../utils/cart";
@@ -7,7 +9,8 @@ import { $ } from "../utils/selector";
 const ProductDetailPage = {
     async render(id) {
         const { data } = await get(id);
-        return /* html */`<div class="max-w-5xl mx-auto">
+        return /* html */`
+            <div class="max-w-5xl mx-auto">
                     <div id="header">
                         ${Header.render()}
                     </div>
@@ -24,12 +27,13 @@ const ProductDetailPage = {
                     <div id="footer">
                         ${Footer.render()}
                     </div>
-                </div>`;
+            </div>`;
     },
     afterRender(id) {
         $("#btnAddToCart").addEventListener("click", async () => {
             const { data } = await get(id);
             addToCart({ ...data, quantity: $("#inputValue").value ? $("#inputValue").value : 1 });
+            toastr.success("Bạn thêm vào giỏ hàng thành công!");
         });
     },
 };
