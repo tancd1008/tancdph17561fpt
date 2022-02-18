@@ -20,10 +20,10 @@ const Home = {
                     <div class="grid grid-cols-3 gap-8">
                         ${data.map((post) => `
                             <div class="border p-4">
-                                <a href="/new/${post.id}">
+                                <a href="/post/${post.id}">
                                     <img src="${post.img}" alt="" />
                                 </a>
-                                <h3 class="my-3"><a href="/new/${post.id}" class="font-semibold text-lg text-orange-500">${post.title}</a></h3>
+                                <h3 class="my-3"><a href="/post/${post.id}" class="font-semibold text-lg text-orange-500">${post.title}</a></h3>
                                 <p>${post.content}</p>
                             </div>
                         `).join("")}

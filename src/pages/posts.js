@@ -1,6 +1,6 @@
 import { get } from "../api/posts";
 
-const New = {
+const PostPage = {
     async render(id) {
         const { data } = await get(id);
 
@@ -11,4 +11,4 @@ const New = {
         </div>`;
     },
 };
-export default New;
+export default PostPage;

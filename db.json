@@ -1,38 +1,6 @@
 {
   "posts": [
     {
-      "createdAt": "2022-01-10T07:26:52.549Z",
-      "title": "Annie Stroman",
-      "img": "http://placeimg.com/640/480/fashion",
-      "desc": "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals",
-      "id": "1",
-      "categoryPostId": "1"
-    },
-    {
-      "createdAt": "2022-01-10T20:33:27.477Z",
-      "title": "Yolanda Roob",
-      "img": "http://placeimg.com/640/480/sports",
-      "desc": "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality",
-      "id": "2",
-      "categoryPostId": 1
-    },
-    {
-      "createdAt": "2022-01-10T20:33:27.477Z",
-      "title": "Yolanda 1",
-      "img": "http://placeimg.com/640/480/sports",
-      "desc": "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality",
-      "id": "100",
-      "categoryPostId": 1
-    },
-    {
-      "createdAt": "2022-01-11T03:36:13.571Z",
-      "title": "Rufus Konopelski",
-      "img": "http://placeimg.com/640/480/transport",
-      "desc": "New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016",
-      "id": "3",
-      "categoryPostId": 2
-    },
-    {
       "createdAt": "2022-01-10T04:45:32.422Z",
       "title": "Ray Boyle",
       "img": "http://placeimg.com/640/480/transport",
@@ -137,6 +105,12 @@
       "title": "bai viet moi 11",
       "img": "http://res.cloudinary.com/tancd/image/upload/v1644846298/xusw0lndzp7egafj2kzm.jpg",
       "desc": "Noi dung bai viet moi 11"
+    },
+    {
+      "id": "BF2kuDF",
+      "title": "bai viet moi nhat 1",
+      "img": "http://res.cloudinary.com/tancd/image/upload/v1645199999/fokomqtknf5h1ozuamii.jpg",
+      "desc": "Cao Dang Tan"
     }
   ],
   "categoryPosts": [
@@ -177,7 +151,8 @@
       "price": "200",
       "desc": "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals",
       "id": "2"
-    },{
+    },
+    {
       "createdAt": "2022-01-10T07:26:52.549Z",
       "name": "Product 3",
       "img": "http://placeimg.com/640/480/fashion",
@@ -185,8 +160,5 @@
       "desc": "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals",
       "id": "3"
     }
-  
-  
-
   ]
 }

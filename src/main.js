@@ -5,15 +5,15 @@ import Dashboard from "./pages/admin/dashboard";
 // import Footer from "./components/footer";
 // import Header from "./components/header";
 import Home from "./pages/home";
-import New from "./pages/news";
 import AdminPost from "./pages/admin/posts";
 import AddPost from "./pages/admin/posts/add";
-import AdminEditposts from "./pages/admin/posts/edit";
 import Signin from "./pages/signin";
 import Signup from "./pages/signup";
 import ProductDetailPage from "./pages/products/detail";
 import ProductsPage from "./pages/products";
 import CartPage from "./pages/cart";
+import PostPage from "./pages/posts";
+import EditPost from "./pages/admin/posts/edit";
 
 const router = new Navigo("/", { linksSelector: "a" });
 
@@ -56,17 +56,17 @@ router.on({
     "/admin/dashboard": () => {
         print(Dashboard);
     },
-    "/admin/news": () => {
+    "/admin/posts": () => {
         print(AdminPost);
     },
-    "/admin/news/add": () => {
+    "/admin/posts/add": () => {
         print(AddPost);
     },
-    "/new/:id": ({ data }) => {
+    "/post/:id": ({ data }) => {
         const { id } = data;
-        print(New, id);
+        print(PostPage, id);
     },
-    "/admin/posts/:id/edit": ({ data }) => print(AdminEditposts, data.id),
+    "/admin/posts/edit/:id": ({ data }) => print(EditPost, data.id),
 
 });
 

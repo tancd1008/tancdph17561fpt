@@ -11,16 +11,18 @@ const Nav = {
                   <a href="/products" class="block py-2 px-3 text-black hover:text-white rounded-md text-sm font-medium">Sản phẩm</a>
                 </li>
                
-                <li>
-                <a href="/cart" class="block py-2 px-3 text-black hover:text-white rounded-md text-sm font-medium">Giỏ hàng</a>
-              </li>
+                
               ${localStorage.getItem("user") ? /* hmtl */`
               <li>
               <a href="/admin/dashboard" class="block py-2 px-3 text-black hover:text-white rounded-md text-sm font-medium">Admin</a>
             </li>
               ` : ""}
 
-               
+              <li>
+                <a href="/cart" class="block py-2 px-3 text-black hover:text-white rounded-md text-sm font-medium">
+                  <img class="h-[30px]  " src="https://res.cloudinary.com/tancd/image/upload/v1645192239/Aloalo_yuw1ha.png" alt="">
+                </a>
+            </li>
                 
               </ul>
               <form action="" class="block py-3 px-4 text-black ">
