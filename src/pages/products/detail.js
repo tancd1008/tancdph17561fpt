@@ -5,6 +5,7 @@ import Footer from "../../components/footer";
 import Header from "../../components/header";
 import { addToCart } from "../utils/cart";
 import { $ } from "../utils/selector";
+import { reRender } from "../utils/rerender";
 
 const ProductDetailPage = {
     async render(id) {

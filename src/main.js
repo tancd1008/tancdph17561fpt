@@ -16,16 +16,27 @@ import ProductsPage from "./pages/products";
 import CartPage from "./pages/cart";
 
 const router = new Navigo("/", { linksSelector: "a" });
-// const print = async (content, id) => {
-//     // document.getElementById("header").innerHTML = Header.render();
-//     document.getElementById("content").innerHTML = await content.render(id);
-//     if (content.afterRender) await content.afterRender();
-//     // document.getElementById("footer").innerHTML = Footer.render();
-// };
+
 const print = async (content, id) => {
     document.getElementById("app").innerHTML = await content.render(id);
     if (content.afterRender) await content.afterRender(id);
 };
+router.on("/admin/*/", () => {
+    console.log("truy cap duong dan admin/*");
+}, {
+    before(done) {
+        if (localStorage.getItem("user")) {
+            const userId = JSON.parse(localStorage.getItem("user")).id;
+            if (userId === 1) {
+                done();
+            } else {
+                document.location.href = "/";
+            }
+        } else {
+            document.location.href = "/";
+        }
+    },
+});
 router.on({
     "/": () => {
         print(Home);

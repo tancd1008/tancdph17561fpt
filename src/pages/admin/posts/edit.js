@@ -6,7 +6,7 @@ const AdminEditposts = {
     async render(id) {
         const { data } = await get(id);
         console.log(data);
-        return `
+        return /* html */`
           <div class="max-w-5xl mx-auto">
               <div class="banner">
               ${NavAdmin.render()}
