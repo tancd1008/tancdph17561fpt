@@ -1,12 +1,10 @@
 {
   "posts": [
     {
-      "createdAt": "2022-01-10T04:45:32.422Z",
-      "title": "Ray Boyle",
-      "img": "http://placeimg.com/640/480/transport",
-      "desc": "New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016",
       "id": "4",
-      "categoryPostId": 2
+      "title": "Ray Boyle1",
+      "img": "http://res.cloudinary.com/tancd/image/upload/v1645243076/gzblhuavhosmvhd6cp7q.png",
+      "desc": "New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016"
     },
     {
       "createdAt": "2022-01-10T10:56:22.073Z",
@@ -133,32 +131,55 @@
       "email": "caotan1@gmail.com",
       "password": "$2a$10$fjPynrySY5hYVc/gBYtll.G02QpP/RmP28PAzyyVGyrcXtPkpffvu",
       "id": 2
+    },
+    {
+      "email": "caotan111@gmail.com",
+      "password": "$2a$10$aU4lGQzRioxsgSRWz4yj2.jEzXxfdKygzXwoCCf7HBNTtOkPnAQNO",
+      "id": 3
     }
   ],
   "products": [
     {
-      "createdAt": "2022-01-10T07:26:52.549Z",
-      "name": "Product 1",
-      "img": "http://placeimg.com/640/480/fashion",
-      "price": "100",
-      "desc": "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals",
-      "id": "1"
-    },
-    {
-      "createdAt": "2022-01-10T07:26:52.549Z",
-      "name": "Product 2",
-      "img": "http://placeimg.com/640/480/fashion",
+      "id": "2",
+      "name": "Product 22",
+      "img": "http://res.cloudinary.com/tancd/image/upload/v1645243236/fmmimzrpkbcen1pxzjtn.jpg",
       "price": "200",
-      "desc": "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals",
-      "id": "2"
+      "quantily": "10",
+      "desc": "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals"
     },
     {
-      "createdAt": "2022-01-10T07:26:52.549Z",
-      "name": "Product 3",
-      "img": "http://placeimg.com/640/480/fashion",
+      "id": "3",
+      "name": "Product 33",
+      "img": "http://res.cloudinary.com/tancd/image/upload/v1645243278/yhs0lw0myfuyruk0izuv.png",
       "price": "300",
-      "desc": "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals",
-      "id": "3"
+      "quantily": "1111",
+      "desc": "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals"
+    },
+    {
+      "id": "OmkLMpJ",
+      "name": "Product 1",
+      "img": "http://res.cloudinary.com/tancd/image/upload/v1645238188/aoom0aodijp0xaaum3yq.png",
+      "price": "10000",
+      "quantily": "1",
+      "desc": "San pham nay rat tot"
+    },
+    {
+      "name": "Product 11",
+      "img": "http://res.cloudinary.com/tancd/image/upload/v1645238574/kbwo67fqrkyppan2raam.jpg",
+      "price": "10000",
+      "quantily": "11",
+      "desc": "123456",
+      "id": "fa4ps-S"
+    }
+  ],
+  "categoryProduct": [
+    {
+      "id": "1",
+      "name": "Danh muc 1"
+    },
+    {
+      "id": "2",
+      "name": "Danh muc 2"
     }
   ]
 }

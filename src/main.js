@@ -14,6 +14,9 @@ import ProductsPage from "./pages/products";
 import CartPage from "./pages/cart";
 import PostPage from "./pages/posts";
 import EditPost from "./pages/admin/posts/edit";
+import AdminProduct from "./pages/admin/products";
+import AddProduct from "./pages/admin/products/add";
+import EditProduct from "./pages/admin/products/edit";
 
 const router = new Navigo("/", { linksSelector: "a" });
 
@@ -67,7 +70,16 @@ router.on({
         print(PostPage, id);
     },
     "/admin/posts/edit/:id": ({ data }) => print(EditPost, data.id),
-
+    // product
+    "/admin/products": () => {
+        print(AdminProduct);
+    },
+    "/admin/products/add": () => {
+        print(AddProduct);
+    },
+    "/admin/products/edit/:id": ({ data }) => {
+        print(EditProduct, data.id);
+    },
 });
 
 router.resolve();

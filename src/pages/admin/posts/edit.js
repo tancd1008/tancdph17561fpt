@@ -104,7 +104,7 @@ const EditPost = {
                     "Content-Type": "application/form-data",
                 },
             });
-            // call API thêm bài viết
+            // call API cập nhật bài viết
             edit({
                 id,
                 title: document.querySelector("#title-post").value,

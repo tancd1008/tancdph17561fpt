@@ -59,9 +59,9 @@ const Signin = {
                 toastr.success("Đăng nhập thành công, chuyển trang sau 2s");
                 setTimeout(() => {
                     if (data.user.id === 1) {
-                        document.location.href = "/#/admin/news";
+                        document.location.href = "/admin/dashboard";
                     } else {
-                        document.location.href = "/#/";
+                        document.location.href = "/";
                     }
                 }, 2000);
             } catch (error) {

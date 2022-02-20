@@ -24,7 +24,7 @@ const Home = {
                                     <img src="${post.img}" alt="" />
                                 </a>
                                 <h3 class="my-3"><a href="/post/${post.id}" class="font-semibold text-lg text-orange-500">${post.title}</a></h3>
-                                <p>${post.content}</p>
+                                <p>${post.desc}</p>
                             </div>
                         `).join("")}
                     </div>

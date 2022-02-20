@@ -91,7 +91,28 @@ const CartPage = {
                 ${Footer.render()}
             `;
         }
-        return `No Item`;
+        return /* html */`
+            <div id ="header"> 
+                ${Header.render()}
+            </div>
+            <main>
+                    <div class="max-w-7xl mx-auto py-6 ">
+                        <div class="px-4 py-3 sm:px-0">
+                            <div class=" rounded-lg ">
+                                <div class="flex flex-col max-w-5xl mx-auto">
+                                    <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                                        <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                                            <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                                                <h2>Bạn chưa đặt hàng</h2>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+        `;
     },
     afterRender() {
         const btns = $(".btn");
@@ -111,11 +132,13 @@ const CartPage = {
                     });
                 } else {
                     removeItemInCart(id, () => {
+                        localStorage.removeItem("cart");
                         reRender(CartPage, "#app");
                     });
                 }
             });
         });
+        Header.afterRender();
     },
 };
 export default CartPage;
