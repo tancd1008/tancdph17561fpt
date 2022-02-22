@@ -67,6 +67,18 @@
       "img": "http://res.cloudinary.com/ecommercer2021/image/upload/v1645508710/wyxezntchws1xdkkupzt.jpg",
       "desc": "1234567890",
       "id": "ddlmuKa"
+    },
+    {
+      "title": "Tết Nguyên Dán 12",
+      "img": "http://res.cloudinary.com/ecommercer2021/image/upload/v1645515515/gja5c9krhtcrjutnhmok.png",
+      "desc": "Cao Tan",
+      "id": "IbwWwUC"
+    },
+    {
+      "title": "Tết Nguyên Dán 12",
+      "img": "http://res.cloudinary.com/ecommercer2021/image/upload/v1645516302/ib0rs5m7rhyjdnquqe4f.png",
+      "desc": "111111111111111111111111111111111111111",
+      "id": "11almkO"
     }
   ],
   "categoryPosts": [
@@ -109,10 +121,11 @@
     {
       "id": "3",
       "name": "Product 33",
-      "img": "http://res.cloudinary.com/tancd/image/upload/v1645243278/yhs0lw0myfuyruk0izuv.png",
+      "img": "http://res.cloudinary.com/namddph17471/image/upload/v1645515774/fuq4zhzzqbynf9yuhbsj.png",
       "price": "300",
       "quantily": "1111",
-      "desc": "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals"
+      "desc": "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals",
+      "productCateId": 1
     },
     {
       "id": "OmkLMpJ",

@@ -76,7 +76,7 @@ const CartPage = {
                                                         <button data-id="${product.id}" class=" btn btn-increase bg-green-500 text-white inline-block py-1 px-2 rounded  hover:text-indigo-900">+</button>
                                                         </td>
                                                         <td class="px-6 py-4 whitespace-nowrap">
-                                                            <div class="text-sm text-gray-900">${product.price}*${product.quantity}</div>
+                                                            <div class="text-sm text-gray-900">${product.price * product.quantity}</div>
                                                         </td>
                                                         <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                                         <button data-id="${product.id}" class=" btn btn-remove bg-red-500 text-white inline-block py-3 px-5 rounded  hover:text-indigo-900">Remove</button>

@@ -14,7 +14,7 @@ const CategoryProduct = {
                 <div class="group relative">
                   
                   <h3 class="text-center mt-6 text-xl text-gray-500">
-                    <a href="/productCate/${post.id}?_embed=products">
+                    <a href="/productCate/${post.id}">
                       <p class=" font-semibold text-gray-900">${post.name}</p>
                     </a>
                   </h3>

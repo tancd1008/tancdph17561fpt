@@ -28,3 +28,7 @@ export const getAllCate = () => {
     const url = "/productCates";
     return instance.get(url);
 };
+export const addCate = (cate) => {
+    const url = `/pproductCatesoducts`;
+    return instance.post(url, cate);
+};
