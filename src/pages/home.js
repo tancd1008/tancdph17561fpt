@@ -1,6 +1,7 @@
 import Header from "../components/header";
 import Footer from "../components/footer";
 import { getAll } from "../api/posts";
+import Banner from "../components/banner";
 
 const Home = {
     async render() {
@@ -13,7 +14,7 @@ const Home = {
             </div>
             <div class="max-w-5xl mx-auto"> 
                 <div class="banner">
-                    <img src="https://picsum.photos/1024/400" />
+                    ${Banner.render()}
                 </div>
                 <div class="news">
                     <h2 class="text-2xl font-semibold my-4">Tin tức mới nhất</h2>
@@ -36,6 +37,7 @@ const Home = {
     },
     afterRender() {
         Header.afterRender();
+        Banner.afterRender();
     },
 };
 export default Home;

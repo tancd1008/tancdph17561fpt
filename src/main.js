@@ -17,6 +17,7 @@ import EditPost from "./pages/admin/posts/edit";
 import AdminProduct from "./pages/admin/products";
 import AddProduct from "./pages/admin/products/add";
 import EditProduct from "./pages/admin/products/edit";
+import DetailCategoryPage from "./pages/products/categoryDetail";
 
 const router = new Navigo("/", { linksSelector: "a" });
 
@@ -49,6 +50,7 @@ router.on({
         const { id } = data;
         print(ProductDetailPage, id);
     },
+    "/productCate/:id": ({ data }) => print(DetailCategoryPage, data.id),
     "/cart": () => print(CartPage),
     "/signin": () => {
         print(Signin);

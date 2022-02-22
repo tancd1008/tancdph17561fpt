@@ -1,4 +1,6 @@
 import axios from "axios";
+import $ from "jquery";
+import validate from "jquery-validation";
 import { add } from "../../../api/posts";
 import NavAdmin from "../../../components/navadmin";
 
@@ -31,7 +33,7 @@ const AddPost = {
                                                     Tiêu đề
                                                 </label>
                                             <div class="mt-1">
-                                                <input id="title-post" type="text"   class="p-3 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 py-1 block w-full sm:text-sm border border-gray-300 rounded-md" placeholder="">
+                                            <input type="text" class="p-3 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 py-1 block w-full sm:text-sm border border-gray-300 rounded-md" id="title-post" name="title-post" placeholder="Title Post"/><br />
                                             </div>
                                         </div>
                                         <div>
@@ -41,13 +43,16 @@ const AddPost = {
                                             <div class="space-y-1 text-center">
                                                 <input id="img-post" type="file"  class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 py-1 block w-full sm:text-sm border border-gray-300 rounded-md" >
                                             </div>
+                                            <div>
+                                            <img width="200" src="https://thumbs.dreamstime.com/b/no-thumbnail-image-placeholder-forums-blogs-websites-148010362.jpg" id="img-preview"/>                                            
+                                            </div>
                                         </div>
                                         <div>
                                             <label for="about" class="block text-sm font-medium text-gray-700">
-                                                Nội dung
+                                            Nội dung
                                             </label>
                                             <div class="mt-1">
-                                                <textarea id="desc-post" name="about" rows="3" class=" p-3 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md" ></textarea>
+                                                <textarea id="desc-post" class=" p-3 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md" name="desc-post" ></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -69,36 +74,72 @@ const AddPost = {
         `;
     },
     afterRender() {
-        const formAddPost = document.querySelector("#formAddPost");
-        const CLOUDINARY_PRESET_KEY = "sgalizop";
-        const CLOUDINARY_API_URL = "https://api.cloudinary.com/v1_1/tancd/image/upload";
+        const formAddPost = $("#formAddPost");
+        const imgPreview = document.querySelector("#img-preview");
+        const imgPost = document.querySelector("#img-post");
+        let imgLink = "";
 
-        formAddPost.addEventListener("submit", async (e) => {
-            e.preventDefault();
+        const CLOUDINARY_PRESET = "jkbdphzy";
+        const CLOUDINARY_API_URL = "https://api.cloudinary.com/v1_1/ecommercer2021/image/upload";
 
-            const file = document.querySelector("#img-post").files[0];
+        // preview
+        imgPost.addEventListener("change", (e) => {
+            imgPreview.src = URL.createObjectURL(e.target.files[0]);
+        });
 
-            // lấy giá trị của file và gán vào object formData
-            const formData = new FormData();
-            formData.append("file", file);
-            formData.append("upload_preset", CLOUDINARY_PRESET_KEY);
-
-            // call API cloudinary để đẩy ảnh lên
-            const { data } = await axios.post(CLOUDINARY_API_URL, formData, {
-                headers: {
-                    "Content-Type": "application/form-data",
+        // validate form
+        formAddPost.validate({
+            rules: {
+                "title-post": {
+                    required: true,
+                    minlength: 5,
                 },
-            });
+                "desc-post": {
+                    required: true,
+                    minlength: 5,
+                },
+            },
+            messages: {
+                "title-post": {
+                    required: "Không để trống trường này!",
+                    minlength: "Ít nhất phải trên 5 ký tự",
+                },
+                "desc-post": {
+                    required: "Không để trống trường này!",
+                    minlength: "Ít nhất phải trên 5 ký tự",
+                },
+            },
+            submitHandler: () => {
+                async function handleAddPost() {
+                    // Lấy giá trị của input file
+                    const file = document.querySelector("#img-post").files[0];
+                    if (file) {
+                        // Gắn vào đối tượng formData
+                        const formData = new FormData();
+                        formData.append("file", file);
+                        formData.append("upload_preset", CLOUDINARY_PRESET);
 
-            // call api thêm bài viết
-            add({
-                title: document.querySelector("#title-post").value,
-                img: data.url,
-                desc: document.querySelector("#desc-post").value,
-            }).then(() => {
-                window.location.href = "/admin/posts";
-                alert("Bạn đã thêm  thành công");
-            });
+                        // call api cloudinary, để upload ảnh lên
+                        const { data } = await axios.post(CLOUDINARY_API_URL, formData, {
+                            headers: {
+                                "Content-Type": "application/form-data",
+                            },
+                        });
+                        imgLink = data.url;
+                    }
+
+                    // call API thêm bài viết
+                    add({
+                        title: document.querySelector("#title-post").value,
+                        img: imgLink || "",
+                        desc: document.querySelector("#desc-post").value,
+                    }).then(() => {
+                        window.location.href = "/admin/posts";
+                        alert("Bạn đã thêm  thành công");
+                    });
+                }
+                handleAddPost();
+            },
         });
     },
 };

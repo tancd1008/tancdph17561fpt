@@ -41,6 +41,9 @@ const CartPage = {
                                                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                                         Quantity
                                                     </th>
+                                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                     Total
+                                                    </th>
                                                     <th scope="col" class="relative px-6 py-3">
                                                         <span class="sr-only">Edit</span>
                                                     </th>
@@ -72,7 +75,9 @@ const CartPage = {
                                                         <span class="text-sm text-gray-900 text-center">${product.quantity}</span>
                                                         <button data-id="${product.id}" class=" btn btn-increase bg-green-500 text-white inline-block py-1 px-2 rounded  hover:text-indigo-900">+</button>
                                                         </td>
-                                                        
+                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <div class="text-sm text-gray-900">${product.price}*${product.quantity}</div>
+                                                        </td>
                                                         <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                                         <button data-id="${product.id}" class=" btn btn-remove bg-red-500 text-white inline-block py-3 px-5 rounded  hover:text-indigo-900">Remove</button>
                                                         </td>

@@ -1,6 +1,8 @@
 import { getAll } from "../../api/products";
+import Banner from "../../components/banner";
 import Footer from "../../components/footer";
 import Header from "../../components/header";
+import CategoryProduct from "../../components/productCate";
 
 const ProductsPage = {
     async render() {
@@ -10,9 +12,13 @@ const ProductsPage = {
             <div id="header">
                 ${Header.render()}
             </div>
-            <div class="my-3">
-                <img src="https://picsum.photos/1024/400" />
-            </div>
+            <div class="banner">
+              ${Banner.render()}
+          </div>
+          <div>
+          ${await CategoryProduct.render()}
+            
+          </div>
             <div class="news">
             <div class="bg-white">
             <div class=" mx-auto py-10 px-14 sm:py-5 sm:px-4  lg:px-[45px]">
@@ -76,6 +82,7 @@ const ProductsPage = {
     },
     afterRender() {
         Header.afterRender();
+        Banner.afterRender();
     },
 };
 

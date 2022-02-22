@@ -14,7 +14,7 @@ const Banner = {
                     <img src="https://picsum.photos/1024/400" />
                 </div>
                 <div class="swiper-slide">
-                    <img src="https://picsum.photos/1024/400" />    
+                    <img src="https://rubicmarketing.com/wp-content/uploads/2021/07/banner-quang-cao-facebook-3.jpg" />    
                 </div>
                 <div class="swiper-slide">
                     <img src="https://picsum.photos/1024/400" />    

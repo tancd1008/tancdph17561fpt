@@ -76,9 +76,16 @@ const ProductDetailPage = {
     },
     afterRender(id) {
         $("#btnAddToCart").addEventListener("click", async () => {
-            const { data } = await get(id);
-            addToCart({ ...data, quantity: $("#inputValue").value ? $("#inputValue").value : 1 });
-            toastr.success("Bạn thêm vào giỏ hàng thành công!");
+            if (localStorage.getItem("user")) {
+                const { data } = await get(id);
+                addToCart({ ...data, quantity: $("#inputValue").value ? $("#inputValue").value : 1 });
+                toastr.success("Bạn thêm vào giỏ hàng thành công!");
+            } else {
+                toastr.error("Bạn cần phải đăng nhập!");
+                setTimeout(() => {
+                    document.location.href = "/signin";
+                }, 1000);
+            }
         });
     },
 };

@@ -1,12 +1,15 @@
 import axios from "axios";
+import $ from "jquery";
+import validate from "jquery-validation";
 import toastr from "toastr";
-import { edit, get } from "../../../api/products";
+import { edit, get, getAllCate } from "../../../api/products";
 import "toastr/build/toastr.min.css";
 import NavAdmin from "../../../components/navadmin";
 
 const EditProduct = {
     async render(id) {
         const { data } = await get(id);
+        const categoriesProduct = await getAllCate();
         return /* html */`
         ${NavAdmin.render()}
             <header class="bg-white shadow">
@@ -59,6 +62,17 @@ const EditProduct = {
                                     </div>
                                 </div>
                                 <div>
+                                <label for="about" class="block text-sm font-medium text-gray-700">
+                                    Loại Hàng
+                                </label>
+                        
+                                <select id="productCateId"  class="mt-1 p-3 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 py-1 block w-full sm:text-sm border border-gray-300 rounded">
+                                ${categoriesProduct.data.map((cate) =>/* html */ `
+                                    <option value="${cate.id}"  class="p-3 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 py-1 block w-full sm:text-sm border border-gray-300 rounded">${cate.name}</option>
+                                    `).join("")}
+                                </select>
+                            </div>
+                                <div>
                                     <label for="about" class="block text-sm font-medium text-gray-700">
                                         Miêu tả
                                     </label>
@@ -81,53 +95,89 @@ const EditProduct = {
         `;
     },
     afterRender(id) {
-        const formEditProduct = document.querySelector("#formEditProduct");
-        const imgPost = document.querySelector("#img-product");
-        const CLOUDINARY_PRESET_KEY = "sgalizop";
-        const CLOUDINARY_API_URL = "https://api.cloudinary.com/v1_1/tancd/image/upload";
-        formEditProduct.addEventListener("submit", async (e) => {
-            e.preventDefault();
-            if (imgPost.value === "") {
-                const { data } = await get(id);
-                edit({
-                    id,
-                    name: document.querySelector("#name-product").value,
-                    img: data.img,
-                    price: document.querySelector("#price-product").value,
-                    quantily: document.querySelector("#quantily-product").value,
-                    desc: document.querySelector("#desc-product").value,
-                }).then(() => {
-                    toastr.success("Bạn cập nhật thành công!");
-                    setTimeout(() => {
-                        document.location.href = "/admin/products";
-                    }, 2000);
-                });
-            }
-            // Lấy giá trị của input file
-            const file = document.querySelector("#img-product").files[0];
-            // Gắn vào đối tượng formData
-            const formData = new FormData();
-            formData.append("file", file);
-            formData.append("upload_preset", CLOUDINARY_PRESET_KEY);
-
-            // call api cloudinary, để upload ảnh lên
-            const { data } = await axios.post(CLOUDINARY_API_URL, formData, {
-                headers: {
-                    "Content-Type": "application/form-data",
+        const formEdit = $("#formEditProduct");
+        const imgPreview = document.querySelector("#img-preview");
+        const imgProduct = document.querySelector("#img-product");
+        let imgLink = "";
+        const CLOUDINARY_API = "https://api.cloudinary.com/v1_1/namddph17471/image/upload";
+        const CLOUDINARY_PRESET = "nw9blvdh";
+        imgProduct.addEventListener("change", (e) => {
+            imgPreview.src = URL.createObjectURL(e.target.files[0]);
+        });
+        formEdit.validate({
+            rules: {
+                name: {
+                    required: true,
+                    minlength: 5,
                 },
-            });
-            // call API cập nhật bài viết
-            edit({
-                id,
-                name: document.querySelector("#name-product").value,
-                img: data.url,
-                price: document.querySelector("#price-product").value,
-                quantily: document.querySelector("#quantily-product").value,
-                desc: document.querySelector("#desc-product").value,
-            }).then(() => {
-                alert("Bạn đã sửa  thành công");
-                document.location.href = "/admin/products";
-            });
+                price: {
+                    required: true,
+                    number: true,
+                    min: 1000,
+                },
+                quantity: {
+                    required: true,
+                    number: true,
+                    min: 1,
+                },
+                desc: {
+                    required: true,
+                    minlength: 5,
+                },
+            },
+            messages: {
+                name: {
+                    required: "Không để trống trường này!",
+                    minlength: "Ít nhất phải trên 5 ký tự",
+                },
+                price: {
+                    required: "Không để trống trường này!",
+                    number: "Vui lòng Nhập số !",
+                    min: "Giá không được thấp hơn 1000",
+                },
+                quantity: {
+                    required: "Không để trống trường này!",
+                    number: "Vui lòng Nhập số !",
+                    min: "Số Lượng không được thấp hơn 1",
+                },
+                desc: {
+                    required: "Không để trống trường này!",
+                    minlength: "Ít nhất phải trên 5 ký tự",
+                },
+            },
+            submitHandler: () => {
+                async function handleAddPost() {
+                    // Lấy giá trị của input file
+
+                    const file = document.querySelector("#img-product").files[0];
+                    if (file) {
+                        // Gắn vào đối tượng formData
+                        const formData = new FormData();
+                        formData.append("file", file);
+                        formData.append("upload_preset", CLOUDINARY_PRESET);
+
+                        // call api cloudinary, để upload ảnh lên
+                        const { data } = await axios.post(CLOUDINARY_API, formData, {
+                            headers: {
+                                "Content-Type": "application/form-data",
+                            },
+                        });
+                        imgLink = data.url;
+                    }
+                    edit({
+                        id,
+                        name: document.querySelector("#name-product").value,
+                        img: imgLink || "",
+                        price: document.querySelector("#price-product").value,
+                        quantily: document.querySelector("#quantily-product").value,
+                        desc: document.querySelector("#desc-product").value,
+                        productCateId: +document.querySelector("#productCateId").value,
+                    });
+                    alert("Bạn đã sửa  thành công");
+                    document.location.href = "/admin/products";
+                }
+                handleAddPost();
+            },
         });
     },
 };

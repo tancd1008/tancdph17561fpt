@@ -66,7 +66,7 @@ const Signin = {
                 }, 2000);
             } catch (error) {
                 // nếu lỗi thì trả về object chứa lỗi error.response.data
-                toastr.success(error.response.data);
+                toastr.error(error.response.data);
                 $("#formSignin").reset();
             }
         });

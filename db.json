@@ -1,18 +1,10 @@
 {
   "posts": [
     {
-      "id": "4",
-      "title": "Ray Boyle1",
-      "img": "http://res.cloudinary.com/tancd/image/upload/v1645243076/gzblhuavhosmvhd6cp7q.png",
-      "desc": "New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016"
-    },
-    {
-      "createdAt": "2022-01-10T10:56:22.073Z",
+      "id": "5",
       "title": "Jacqueline Hills",
       "img": "http://placeimg.com/640/480/fashion",
-      "desc": "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design",
-      "id": "5",
-      "categoryPostId": 2
+      "desc": "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design"
     },
     {
       "createdAt": "2022-01-11T00:27:12.664Z",
@@ -71,44 +63,10 @@
       "id": "13"
     },
     {
-      "createdAt": "2022-01-10T06:52:23.902Z",
-      "title": "Eddie Crona",
-      "img": "http://placeimg.com/640/480/technics",
-      "desc": "The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients",
-      "id": "14"
-    },
-    {
-      "createdAt": "2022-01-10T15:09:36.220Z",
-      "title": "Heather Labadie",
-      "img": "http://placeimg.com/640/480/sports",
-      "desc": "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles",
-      "id": "15"
-    },
-    {
-      "createdAt": "2022-01-11T03:02:51.996Z",
-      "title": "Daryl Hettinger I",
-      "img": "http://placeimg.com/640/480/nature",
-      "desc": "The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive",
-      "id": "16"
-    },
-    {
-      "createdAt": "2022-01-10T20:16:49.772Z",
-      "title": "Heather Miller",
-      "img": "http://placeimg.com/640/480/nightlife",
-      "desc": "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
-      "id": "17"
-    },
-    {
-      "id": "Fhb4ltM",
-      "title": "bai viet moi 11",
-      "img": "http://res.cloudinary.com/tancd/image/upload/v1644846298/xusw0lndzp7egafj2kzm.jpg",
-      "desc": "Noi dung bai viet moi 11"
-    },
-    {
-      "id": "BF2kuDF",
-      "title": "bai viet moi nhat 1",
-      "img": "http://res.cloudinary.com/tancd/image/upload/v1645199999/fokomqtknf5h1ozuamii.jpg",
-      "desc": "Cao Dang Tan"
+      "title": "Tết Nguyên Dán ",
+      "img": "http://res.cloudinary.com/ecommercer2021/image/upload/v1645508710/wyxezntchws1xdkkupzt.jpg",
+      "desc": "1234567890",
+      "id": "ddlmuKa"
     }
   ],
   "categoryPosts": [
@@ -142,10 +100,11 @@
     {
       "id": "2",
       "name": "Product 22",
-      "img": "http://res.cloudinary.com/tancd/image/upload/v1645243236/fmmimzrpkbcen1pxzjtn.jpg",
+      "img": "http://res.cloudinary.com/namddph17471/image/upload/v1645514430/fbyq8hkwtlevewiubvui.png",
       "price": "200",
       "quantily": "10",
-      "desc": "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals"
+      "desc": "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals",
+      "productCateId": 1
     },
     {
       "id": "3",
@@ -164,22 +123,43 @@
       "desc": "San pham nay rat tot"
     },
     {
+      "id": "fa4ps-S",
       "name": "Product 11",
       "img": "http://res.cloudinary.com/tancd/image/upload/v1645238574/kbwo67fqrkyppan2raam.jpg",
       "price": "10000",
       "quantily": "11",
-      "desc": "123456",
-      "id": "fa4ps-S"
-    }
-  ],
-  "categoryProduct": [
-    {
-      "id": "1",
-      "name": "Danh muc 1"
+      "desc": "123456"
     },
     {
-      "id": "2",
-      "name": "Danh muc 2"
+      "name": "Homestay Vip",
+      "img": "http://res.cloudinary.com/tancd/image/upload/v1645505246/z5pmobhhdd8bveprd6sp.jpg",
+      "price": "100000",
+      "quantily": "1",
+      "desc": "Đẹp",
+      "productCateId": 3,
+      "id": "cSNwomM"
+    },
+    {
+      "id": "uPA_kCd",
+      "name": "Homestay Vip 1234",
+      "img": "http://res.cloudinary.com/ecommercer2021/image/upload/v1645510801/aulwi0paafnuocgjtboz.jpg",
+      "price": "100000",
+      "quantily": "1",
+      "desc": "Đẹpccccccccccccccccccccc"
+    }
+  ],
+  "productCates": [
+    {
+      "name": "Bình Dân",
+      "id": 1
+    },
+    {
+      "name": "Trung Cấp",
+      "id": 2
+    },
+    {
+      "name": "Cao Cấp",
+      "id": 3
     }
   ]
 }
